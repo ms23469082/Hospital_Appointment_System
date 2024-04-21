@@ -5,6 +5,7 @@
     <!--Meta-->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
     <link rel="icon" type="image/x-icon" href="./src/img/favicon.ico" />
@@ -41,10 +42,10 @@
 
             <?php if (isset($_GET['error'])) { ?>
                 <p class="error">
-                    <?php echo $_GET['error']; ?>
+                    <?php echo htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8'); ?>
                 </p>
             <?php } ?>
-
+            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars('csrf_token', ENT_QUOTES, 'UTF-8'); ?>">
             <button type="submit" class="w-100 btn btn-success">Login</button>
         </div>
     </form>

@@ -4,8 +4,7 @@ include "dbcon.php";
 
 if (isset($_POST['name']) && isset($_POST['password'])) {
 
-	function validate($data)
-	{
+	function validate($data) {
 		$data = trim($data);
 		$data = stripslashes($data);
 		$data = htmlspecialchars($data);
@@ -16,36 +15,35 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']);
 
 	if (empty($uname)) {
-		header("Location: ../../index.php?error=Enter the Username!");
+		header("Location: ../../index.php?error=" . urlencode("Enter the Username!"));
 		exit();
 	} else if (empty($pass)) {
-		header("Location: ../../index.php?error=Enter the Password!");
+		header("Location: ../../index.php?error=" . urlencode("Enter the Password!"));
 		exit();
 	} else {
-		$sql = "SELECT * FROM users WHERE name='$uname' AND password='$pass'";
+		// Prepared statement for SQL query
+		$sql = "SELECT * FROM users WHERE name=? AND password=?";
+		$stmt = mysqli_prepare($dbcon, $sql);
+		mysqli_stmt_bind_param($stmt, "ss", $uname, $pass);
+		mysqli_stmt_execute($stmt);
+		$result = mysqli_stmt_get_result($stmt);
 
-		$result = mysqli_query($dbcon, $sql);
-
-		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
-			if ($row['name'] === $uname && $row['password'] === $pass) {
-				$_SESSION['user_name'] = $row['user_name'];
-				$_SESSION['name'] = $row['name'];
-				$_SESSION['id'] = $row['id'];
-				header("Location: home.php");
-				exit();
-			} else {
-				header("Location: ../../index.php?error=Username or Password is Wrong!");
-				exit();
-			}
+		if ($row = mysqli_fetch_assoc($result)) {
+			// Valid credentials, set session variables
+			$_SESSION['user_name'] = $row['user_name'];
+			$_SESSION['name'] = $row['name'];
+			$_SESSION['id'] = $row['id'];
+			header("Location: home.php");
+			exit();
 		} else {
-			header("Location: ../../index.php?error=Username or Password is Wrong!");
+			// Invalid credentials
+			header("Location: ../../index.php?error=" . urlencode("Username or Password is Wrong!"));
 			exit();
 		}
 	}
 
 } else {
-	header("Location: .../index.php");
+	header("Location: ../../index.php");
 	exit();
 }
 ?>
