@@ -86,11 +86,11 @@ if (isset($_POST['submit'])) {
                         </div>
                         <select class="form-control" id="CityInput" name="city" required>
                             <option disabled selected hidden></option>
-                            <option>Antalya</option>
-                            <option>Izmir</option>
-                            <option>Tekirdag</option>
-                            <option>Istanbul</option>
-                            <option>Ankara</option>
+                            <option>Kandy</option>
+                            <option>Gampola</option>
+                            <option>Anuradhapura</option>
+                            <option>Gampaha</option>
+                            <option>Colombo</option>
                         </select>
                     </div>
                     <div class="input-group mb-2">
