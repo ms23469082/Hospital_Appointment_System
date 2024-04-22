@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     <!--Meta-->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none'; frame-ancestors 'none';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' jsdelivr.net *.jsdelivr.net ; img-src https://*; child-src 'none'; frame-ancestors 'none';" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hospital Appointment Database</title>
     <link rel="icon" type="image/x-icon" href="../../src/img/favicon.ico" />
@@ -176,7 +176,7 @@ if (isset($_POST['submit'])) {
     <footer class="container bg-black bg-opacity-25 rounded-2 mt-4 p-3 text-center">
         <h4>Developer</h4>
         <div class="d-flex align-items-center justify-content-evenly mt-3">
-            <button class="btn btn-outline-warning">ErenElagz</button>
+            <button class="btn btn-outline-warning">Sithma T</button>
         </div>
     </footer>
 
