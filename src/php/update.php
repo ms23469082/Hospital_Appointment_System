@@ -1,5 +1,7 @@
 <?php
+
 include "dbcon.php";
+include '../src/csrf.php';
 
 $id = $_GET["updateid"];
 $sql = "Select * from `appointment`where id=$id";

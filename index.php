@@ -1,3 +1,6 @@
+<?php
+include 'csrf.php';
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +48,7 @@
                     <?php echo htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8'); ?>
                 </p>
             <?php } ?>
-            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars('csrf_token', ENT_QUOTES, 'UTF-8'); ?>">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <button type="submit" class="w-100 btn btn-success">Login</button>
         </div>
     </form>
@@ -56,3 +59,4 @@
 </body>
 
 </html>
+?>

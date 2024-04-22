@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../src/csrf.php';
 include "dbcon.php";
 
 if (isset($_POST['name']) && isset($_POST['password'])) {

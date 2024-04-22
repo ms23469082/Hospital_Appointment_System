@@ -1,4 +1,5 @@
 <?php
+include '../src/csrf.php';
 include "dbcon.php";
 $id = $_GET['deleteid'];
 
