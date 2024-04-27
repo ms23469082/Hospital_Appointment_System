@@ -16,4 +16,4 @@ CREATE TABLE users (
     password varchar(255)
 );
 
-INSERT INTO users (id, name, password) VALUES (1, 'admin', 'admin'),
+INSERT INTO users (id, name, password) VALUES (1, 'admin', 'admin');
