@@ -20,7 +20,6 @@
         <h1 class="h2 text-center text-dark">Hospital System Admin Login</h1>
     </header>
 
-    <!--Login-->
     <form action="./src/php/login.php" method="post" class="container d-flex justify-content-center mt-5">
         <div class="w-75 bg-black bg-opacity-25 rounded-2 p-4">
             <h4>Login the System</h4>
@@ -46,6 +45,9 @@
             <?php } ?>
 
             <button type="submit" class="w-100 btn btn-success">Login</button>
+	    <div class="mt-3 text-center">
+        	<a href="/oAuth/oAuth_login.php" class="btn btn-primary">Login with Other Platforms</a>
+            </div>
         </div>
     </form>
 

@@ -70,11 +70,11 @@ if (isset($_POST['submit'])) {
                         </div>
                         <select class="form-control" id="CityInput" name="city" required>
                             <option disabled selected hidden></option>
-                            <option>Antalya</option>
-                            <option>Izmir</option>
-                            <option>Tekirdag</option>
-                            <option>Istanbul</option>
-                            <option>Ankara</option>
+                            <option>Gampaha</option>
+                            <option>Gampola</option>
+                            <option>Kandy</option>
+                            <option>Anuradhapura</option>
+                            <option>Colombo</option>
                         </select>
                     </div>
                     <div class="input-group mb-2">
@@ -174,7 +174,7 @@ if (isset($_POST['submit'])) {
     <footer class="container bg-black bg-opacity-25 rounded-2 mt-4 p-3 text-center">
         <h4>Developer</h4>
         <div class="d-flex align-items-center justify-content-evenly mt-3">
-            <button class="btn btn-outline-warning">ErenElagz</button>
+            <button class="btn btn-outline-warning">Sithma T</button>
         </div>
     </footer>
 

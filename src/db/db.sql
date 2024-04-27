@@ -1,7 +1,7 @@
 CREATE DATABASE hospital;
 
 CREATE TABLE appointment (
-    id int PRIMARY AUTO_INCREMENT,
+    id int AUTO_INCREMENT PRIMARY KEY,
     name varchar(255),
     surname varchar(255),
     id_number varchar(255),
@@ -11,9 +11,9 @@ CREATE TABLE appointment (
 );
 
 CREATE TABLE users (
-    id int PRIMARY AUTO_INCREMENT,
+    id int AUTO_INCREMENT PRIMARY KEY,
     name varchar(255),
     password varchar(255)
 );
 
-INSERT INTO `users` (`id`, `name`, `password`,) VALUES (1, 'Eren', '123'),
+INSERT INTO users (id, name, password) VALUES (1, 'admin', 'admin');
