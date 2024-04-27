@@ -16,15 +16,17 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']);
 
 	if (empty($uname)) {
-		header("Location: ../../index.php?error=Enter the Username!");
+		header("Location: ../../index.php?error=" . urlencode("Enter the Username!"));
 		exit();
 	} else if (empty($pass)) {
-		header("Location: ../../index.php?error=Enter the Password!");
+		header("Location: ../../index.php?error=" . urlencode("Enter the Password!"));
 		exit();
 	} else {
 		$sql = "SELECT * FROM users WHERE name='$uname' AND password='$pass'";
-
-		$result = mysqli_query($dbcon, $sql);
+		$stmt = mysqli_prepare($dbcon, $sql);
+		mysqli_stmt_bind_param($stmt, "ss", $uname, $pass);
+		mysqli_stmt_execute($stmt);
+		$result = mysqli_stmt_get_result($stmt);
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
@@ -35,11 +37,11 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
 				header("Location: home.php");
 				exit();
 			} else {
-				header("Location: ../../index.php?error=Username or Password is Wrong!");
+				header("Location: ../../index.php?error=" . urlencode("Username or Password is Wrong!"));
 				exit();
 			}
 		} else {
-			header("Location: ../../index.php?error=Username or Password is Wrong!");
+			header("Location: ../../index.php?error=" . urlencode("Username or Password is Wrong!"));
 			exit();
 		}
 	}
